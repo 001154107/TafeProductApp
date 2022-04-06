@@ -21,6 +21,7 @@ namespace ProductApps
     public partial class MainWindow : Window
     {
         private const decimal DELIVERYCHARGE = 25.00M;
+        private const decimal GSTRATE = 00.1M;
         Product cProduct;
 
         public MainWindow()
@@ -39,6 +40,8 @@ namespace ProductApps
                 totalChargeTextBlock.Text = totalCharge.ToString();
                 decimal totalwithwrap = totalCharge + 5;
                 totalwithwraptextblock.Text = totalwithwrap.ToString();
+                decimal totalwithGST = totalwithwrap * GSTRATE + totalwithwrap;
+                totalGSTBlock.Text = totalwithGST.ToString();
             }
             catch (FormatException)
             {
